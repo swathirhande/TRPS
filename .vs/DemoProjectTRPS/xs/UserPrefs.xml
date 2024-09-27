@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{0005F591-07B8-9C45-56F4-FA51C348F5C9}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tetromino.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Tetromino.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/Data.cs" Line="8" Column="54" />
+      <File FileName="Assets/Scripts/Piece.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Board.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DemoProjectTRPS" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Tetromino.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="90c938d4-0181-4143-8c30-5705f3c3f4d4" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
