@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class Board : MonoBehaviour
     public Vector3Int spawnPosition;
     public Vector2Int boardSize = new Vector2Int(10, 20);
     // public GameOverScript GameOverScript;
+    public Text gameOverText;
+    public Text scoreText;
+    public GameObject panel;
+    // public Text scoreText;
+    public GameObject scorePanel;
+    public Text finalscore;
+    private int finalScore = 0;
 
 
     private int score = 0;
@@ -44,6 +52,8 @@ public class Board : MonoBehaviour
     public void Start()
     {
         SpawnPiece();
+        UpdateScoreText();
+        scorePanel.SetActive(true);
     }
 
     public void SpawnPiece()
@@ -69,6 +79,18 @@ public class Board : MonoBehaviour
 
     }
 
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            Debug.LogError("Score Text is not assigned in the Inspector!");
+        }
+    }
+
     private bool IsGameOver()
     {
 
@@ -81,11 +103,25 @@ public class Board : MonoBehaviour
             Vector3Int topRowPos = new Vector3Int(x, topRowY, 0);
             Vector3Int secondTopRowPos = new Vector3Int(x, secondTopRowY, 0);
 
-
             if (tilemap.HasTile(secondTopRowPos))
             {
                 Debug.Log("Second top row has a tile. Game over!");
-                return true;
+                if (gameOverText != null)
+                {
+                    gameOverText.gameObject.SetActive(true);
+                    panel.gameObject.SetActive(true);
+                    scoreText.gameObject.SetActive(true);
+                    gameOverText.text += $"\nFinal Score: {score}";
+                    finalScore = score;
+                    finalscore.text = "FINAL SCORE: " + finalScore;
+                    finalscore.gameObject.SetActive(true);
+                    gameOverText.text = "GAME OVER!"; // Set the text, just in case it isn't set in the Editor
+                }
+                else
+                {
+                    Debug.LogError("Game Over Text is not assigned in the Inspector!");
+                }
+                return true; // Stop the game
             }
         }
 
@@ -188,6 +224,7 @@ public class Board : MonoBehaviour
 
                         score += 10;
                         Debug.Log($"Score: {score}");
+                        UpdateScoreText(); 
 
                     }
                 }
